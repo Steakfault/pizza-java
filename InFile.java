@@ -18,10 +18,19 @@ public class InFile {
 				this.columns = sc.nextInt();
 				this.ingredientsPerSlice = sc.nextInt();
 				this.maxCellsPerSlice = sc.nextInt();
+				this.content = new char[this.columns][this.rows];
+
+				int j = 0;
+				while (sc.hasNext() && j < this.rows) {
+					String str = sc.next();
+					for (int i = 0; i < this.columns; i++) {
+						this.content[i][j] = str.charAt(i);
+					}
+					j++;
+				}
+
 			}
-		} catch(Exception e) {
-			System.out.println("File not found");
-		}
+		} catch(Exception e) {}
 	}
 
 	public void debug() {
@@ -31,8 +40,3 @@ public class InFile {
 		System.out.println("Nombre de cellules max par part : " + this.maxCellsPerSlice);
 	}
 }
-
-// String content;
-//     try (Scanner scanner = new Scanner(textFile).useDelimiter("\\Z")) {
-//         content = scanner.next();
-//     }
