@@ -4,13 +4,15 @@ import java.util.Scanner;
 // Classe permettant de lire un ficher d'entrée
 public class InFile {
 
+	private String filename;
 	private int rows = 0;
 	private int columns = 0;
 	private int ingredientsPerSlice = 0;
 	private int maxCellsPerSlice = 0;
-	private char[][] content;
+	public char[][] content;
 
 	public InFile(String filename) {
+		this.filename = filename;
 		try {
 			File file = new File(filename);
 			try (Scanner sc = new Scanner(file)) {
